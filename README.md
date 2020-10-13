@@ -3,8 +3,8 @@ Emojibet is a simple powershell script that will convert the 26 letters of the E
 
 Access the channel topic descriptions using the following guide:
 
-> Open your Discord channel
-> Right click on an existing Text channel
-> Select 'Edit Channel'
-> Paste the script's output into the 'Channel topic' field
-> Don't forget to hit save!
+  Open your Discord channel
+  Right click on an existing Text channel
+  Select 'Edit Channel'
+  Paste the script's output into the 'Channel topic' field
+  Don't forget to hit save!
