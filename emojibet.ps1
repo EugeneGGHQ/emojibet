@@ -1,3 +1,5 @@
+#Load the initial GUI popup prompting the user to enter the alphanumeric text.
+
 [void][Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic')
 
 $title = 'Emojibet'
@@ -5,6 +7,13 @@ $msg   = 'Enter your text below:'
 
 $name = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title)
 
+#If text not entered, exit the script
+
+If ($name -eq '') {
+    exit
+    }
+
+#The scan of the original string, and subsequently conversion 'from' -> 'To' translations.
 
 -join $(
   $emojibet = switch($name.ToCharArray()){
@@ -48,7 +57,7 @@ $name = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title)
     default {$_}
   }
 )
-#OutputWindow
+#GUI Popup after the conversion completes
 
 Function ButtonGo_Click
 {
@@ -79,4 +88,6 @@ $mainForm.Text = "Emojibet"
 #endregion designer
 
 cls
+$CenterScreen = [System.Windows.Forms.FormStartPosition]::CenterScreen;
+$mainform.StartPosition = $CenterScreen;
 $mainForm.ShowDialog()
