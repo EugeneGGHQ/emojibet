@@ -5,8 +5,9 @@ $msg   = 'Enter your text below:'
 
 $name = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title)
 
+
 -join $(
-  switch($name.ToCharArray()){
+  $emojibet = switch($name.ToCharArray()){
     a {':regional_indicator_a:'}
     b {':regional_indicator_b:'}
     c {':regional_indicator_c:'}
@@ -47,3 +48,35 @@ $name = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title)
     default {$_}
   }
 )
+#OutputWindow
+
+Function ButtonGo_Click
+{
+    $textBoxDisplay.Text = ($emojibet)
+}
+
+#endOutputWindow
+
+#region designer
+
+[System.Windows.Forms.Application]::EnableVisualStyles()
+
+$textBoxDisplay = New-Object 'System.Windows.Forms.TextBox'
+$textBoxDisplay.Location = '12, 50'
+$textBoxDisplay.Multiline = $true
+$textBoxDisplay.Name = "textBoxDisplay"
+$textBoxDisplay.Size = '470, 150'
+$textBoxDisplay.TabIndex = 1
+$textBoxDisplay.Text = "$emojibet"
+
+$mainForm = New-Object 'System.Windows.Forms.Form'
+$mainForm.Size = '500, 250'
+$mainForm.Controls.Add($textBoxDisplay)
+$mainForm.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
+$mainForm.Name = "mainForm"
+$mainForm.Text = "Emojibet"
+
+#endregion designer
+
+cls
+$mainForm.ShowDialog()
