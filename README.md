@@ -1,6 +1,12 @@
 # emojibet
 Emojibet is a simple powershell script that will convert the 26 letters of the English alphabet into Discord-friendly regional indicator emojis. Useful for quickly updating Discord channel topic descriptions.
 
+To use Emojibet powershell script, simply download emojibet.ps1 onto a Windows 10 computer, right click on it, and select 'Run with Powershell'.
+
+Then, enter the word or phrase you want converting, and hit 'OK'
+
+You'll then see a text field which you can copy the contents from, into your Discord channel topic field.
+
 Access the channel topic descriptions using the following guide:
 
   Open your Discord channel
