@@ -1,4 +1,9 @@
-﻿$name = read-host "Please enter a word"
+[void][Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic')
+
+$title = 'Emojibet'
+$msg   = 'Enter your text below:'
+
+$name = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title)
 
 -join $(
   switch($name.ToCharArray()){
