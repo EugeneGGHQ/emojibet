@@ -1,5 +1,6 @@
-#Load the initial GUI popup prompting the user to enter the alphanumeric text.
 
+PowerShell.exe -windowstyle hidden{
+#Load the initial GUI popup prompting the user to enter the alphanumeric text.
 [void][Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic')
 
 $title = 'Emojibet'
@@ -91,3 +92,4 @@ cls
 $CenterScreen = [System.Windows.Forms.FormStartPosition]::CenterScreen;
 $mainform.StartPosition = $CenterScreen;
 $mainForm.ShowDialog()
+}
