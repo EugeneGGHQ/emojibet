@@ -60,9 +60,9 @@ If ($name -eq '') {
 )
 if ($emojibet.length -gt 213) {
     Add-Type -AssemblyName PresentationCore,PresentationFramework
-    $ButtonType = [System.Windows.MessageBoxButton]::YesNo
+    $ButtonType = [System.Windows.MessageBoxButton]::OK
     $MessageboxTitle = "Warning"
-    $Messageboxbody = "Warning: The output is too long to be shown on a standard 2560px-wide monitor. Do you wish to continue?"
+    $Messageboxbody = "Warning: The output is too long to be shown on a standard 2560px-wide monitor."
     $MessageIcon = [System.Windows.MessageBoxImage]::Warning
     [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
        }
