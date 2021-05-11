@@ -1,5 +1,6 @@
 # emojibet
 ![GGHQ](https://img.shields.io/badge/GGHQ-Emojibet-orange)
+
 Emojibet is a simple powershell script that will convert alphanumeric English language characters into Discord-friendly regional indicator emojis. Useful for quickly updating Discord channel topic descriptions.
 
 To use Emojibet powershell script, simply download emojibet.ps1 onto a Windows 10 computer, right click on it, and select 'Run with Powershell'.
