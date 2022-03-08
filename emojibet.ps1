@@ -63,11 +63,19 @@ If ($name -eq '') {
 #This will provide charactercount as an integer of how many characters are in the $emojibet output
     $charactercount = $emojibet | measure-object -Character |select -expandproperty characters
 #Warning Popup follows if greater than 213 characters on output
-if ($charactercount -gt '213')
+if ($charactercount -gt '213' -and $charactercount -lt '1024')
     { 
     $ButtonType = [System.Windows.Forms.MessageBoxButtons]::OK
     $MessageIcon = [System.Windows.Forms.MessageBoxIcon]::Warning
     $MessageBody = "Warning - Your output is more than 213 characters long and may not be easily readable in Discord Channel Descriptions"
+    $MessageTitle = "Emojibet Warning"
+    $Result = [System.Windows.Forms.Messagebox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)}
+
+if ($charactercount -gt '1024')
+    { 
+    $ButtonType = [System.Windows.Forms.MessageBoxButtons]::RetryCancel 
+    $MessageIcon = [System.Windows.Forms.MessageBoxIcon]::Stop
+    $MessageBody = "Warning - Your output is more than 1024 characters long and is not usable on Discord"
     $MessageTitle = "Emojibet Warning"
     $Result = [System.Windows.Forms.Messagebox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)}
 
