@@ -58,14 +58,21 @@ If ($name -eq '') {
     default {$_}
   }
 )
-if ($emojibet.length -gt 213) {
-    Add-Type -AssemblyName PresentationCore,PresentationFramework
-    $ButtonType = [System.Windows.MessageBoxButton]::OK
-    $MessageboxTitle = "Warning"
-    $Messageboxbody = "Warning: The output is too long to be shown on a standard 2560px-wide monitor."
-    $MessageIcon = [System.Windows.MessageBoxImage]::Warning
-    [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
-       }
+
+
+#This will provide charactercount as an integer of how many characters are in the $emojibet output
+    $charactercount = $emojibet | measure-object -Character |select -expandproperty characters
+#Warning Popup follows if greater than 213 characters on output
+if ($charactercount -gt '213')
+    { 
+    $ButtonType = [System.Windows.Forms.MessageBoxButtons]::OK
+    $MessageIcon = [System.Windows.Forms.MessageBoxIcon]::Warning
+    $MessageBody = "Warning - Your output is more than 213 characters long and may not be easily readable in Discord Channel Descriptions"
+    $MessageTitle = "Emojibet Warning"
+    $Result = [System.Windows.Forms.Messagebox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)}
+
+
+  
 #GUI Popup after the conversion completes
 
 Function ButtonGo_Click
@@ -80,16 +87,24 @@ Function ButtonGo_Click
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 $textBoxDisplay = New-Object 'System.Windows.Forms.TextBox'
-$textBoxDisplay.Location = '12, 50'
+$textBoxDisplay.Location = '20, 10'
 $textBoxDisplay.Multiline = $true
 $textBoxDisplay.Name = "textBoxDisplay"
-$textBoxDisplay.Size = '470, 150'
+$textBoxDisplay.Size = '270, 190'
 $textBoxDisplay.TabIndex = 1
 $textBoxDisplay.Text = "$emojibet"
 
+$textBoxDisplay2 = New-Object 'System.Windows.Forms.Textbox'
+$textBoxDisplay2.Location = '300, 180'
+$textBoxDisplay2.Size = '30, 10'
+$textboxDisplay2.Name = "textboxdisplay2"
+$textBoxDisplay2.Text = $charactercount
+
+
 $mainForm = New-Object 'System.Windows.Forms.Form'
-$mainForm.Size = '500, 250'
+$mainForm.Size = '380, 250'
 $mainForm.Controls.Add($textBoxDisplay)
+$mainForm.Controls.Add($textBoxDisplay2)
 $mainForm.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
 $mainForm.Name = "mainForm"
 $mainForm.Text = "Emojibet"
