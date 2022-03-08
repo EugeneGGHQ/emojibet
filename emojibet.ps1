@@ -98,7 +98,7 @@ $textBoxDisplay = New-Object 'System.Windows.Forms.TextBox'
 $textBoxDisplay.Location = '20, 10'
 $textBoxDisplay.Multiline = $true
 $textBoxDisplay.Name = "textBoxDisplay"
-$textBoxDisplay.Size = '270, 190'
+$textBoxDisplay.Size = '220, 190'
 $textBoxDisplay.TabIndex = 1
 $textBoxDisplay.Text = "$emojibet"
 
@@ -116,6 +116,16 @@ $mainForm.Controls.Add($textBoxDisplay2)
 $mainForm.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
 $mainForm.Name = "mainForm"
 $mainForm.Text = "Emojibet"
+
+#The below is the copy to clipboard functionality
+$ClipboardButton = New-Object System.Windows.Forms.Button
+$ClipboardButton.Location = New-Object System.Drawing.Size (250,50)
+$ClipboardButton.Size = New-Object System.Drawing.Size (100,50)
+$ClipboardButton.Text = "Copy to Clipboard"
+$mainForm.Controls.Add($ClipboardButton)
+$ClipboardButton.Add_Click($ClipboardButton_Click)
+
+$ClipboardButton_Click= Set-Clipboard -Value $emojibet
 
 #endregion designer
 
