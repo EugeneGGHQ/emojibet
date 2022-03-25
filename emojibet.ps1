@@ -127,6 +127,14 @@ $ClipboardButton.Add_Click($ClipboardButton_Click)
 
 $ClipboardButton_Click= Set-Clipboard -Value $emojibet
 
+#Adds the New Emojibet Button in on output window
+$NewEmojibet = New-Object System.Windows.Forms.Button
+$NewEmojibet.Location = New-Object System.Drawing.Size (250,100)
+$NewEmojibet.Size = New-Object System.Drawing.Size (100,50)
+$NewEmojibet.Text = "New Emojibet" 
+$mainForm.Controls.Add($NewEmojibet)
+$NewEmojibet.Add_Click($NewEmojibet_Click)
+
 #endregion designer
 
 cls
